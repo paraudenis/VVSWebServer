@@ -16,28 +16,28 @@ public class WebServerTest {
 
     @Test
     public void setPort_GetPort() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         Server.setPort(0);
         Assertions.assertEquals(0,Server.getPort());
     }
 
     @Test
     public void setHome_GetHome() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
-        Server.setHome("E:/IntelliJ-workspace/WebServer/TestSite/ASDF");
-        Assertions.assertEquals("E:/IntelliJ-workspace/WebServer/TestSite/ASDF", Server.getHome());
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
+        Server.setHome("E:/VVSWebServer/TestFiles/ASDF");
+        Assertions.assertEquals("E:/VVSWebServer/TestFiles/ASDF", Server.getHome());
     }
 
     @Test
     public void setStatus_GetStatus() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         Server.setStatus("Stopped");
         Assertions.assertEquals("Stopped", Server.getStatus());
     }
 
     @Test
     public void createServerSocket_Success() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
 
         try {
             ServerSocket socket = Server.createServerSocket(port);
@@ -54,7 +54,7 @@ public class WebServerTest {
 
     @Test
     public void createServerSocket_PortOutOfRange_ThrowsIllegalArgumentException() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         Assertions.assertThrows(IllegalArgumentException.class,() -> {
             ServerSocket socket = Server.createServerSocket(-1);
         });
@@ -62,7 +62,7 @@ public class WebServerTest {
 
     @Test
     public void createServerSocket_PortOccupied_ThrowsBindException() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         Assertions.assertThrows(BindException.class,() -> {
             ServerSocket socket1 = Server.createServerSocket(port);
             ServerSocket socket2 = Server.createServerSocket(port);
@@ -71,7 +71,7 @@ public class WebServerTest {
 
     @Test
     public void closeServerSocket_Success() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         try {
             ServerSocket socket = Server.createServerSocket(port);
             Server.closeServerSocket(socket);
@@ -83,7 +83,7 @@ public class WebServerTest {
 
     @Test
     public void closeServerSocket_NullSocket_ThrowsNullPointerException() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         Assertions.assertThrows(NullPointerException.class,() -> {
             ServerSocket socket = null;
             Server.closeServerSocket(socket);
@@ -92,8 +92,8 @@ public class WebServerTest {
 
     @Test
     public void acceptConnectedSocket_Success() {
-        /* Connect to localhost:port when running this test */
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        /* Connect to localhost:8080 when running this test */
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         try {
             ServerSocket socket = Server.createServerSocket(port);
             Socket acceptedSocket = Server.acceptConnectedSocket(socket);
@@ -113,7 +113,7 @@ public class WebServerTest {
 
     @Test
     public void acceptConnectedSocket_AcceptFromClosedServerSocket_ThrowsSocketException() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         Assertions.assertThrows(SocketException.class,() -> {
             ServerSocket socket = Server.createServerSocket(port);
             socket.close();
@@ -124,8 +124,8 @@ public class WebServerTest {
 
     @Test
     public void closeAcceptedSocket_Success() {
-        /* Connect to localhost:port when running this test */
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        /* Connect to localhost:8080 when running this test */
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         try {
             ServerSocket socket = Server.createServerSocket(port);
             Socket acceptedSocket = Server.acceptConnectedSocket(socket);
@@ -144,7 +144,7 @@ public class WebServerTest {
 
     @Test
     public void closeAcceptedSocket_NullSocket_ThrowsNullPointerException() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         Assertions.assertThrows(NullPointerException.class,() -> {
             Socket acceptedSocket = null;
             Server.closeAcceptedSocket(acceptedSocket);
@@ -153,8 +153,8 @@ public class WebServerTest {
 
     @Test
     public void readInputStream_Success() {
-        /* Connect to localhost:port when running this test */
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        /* Connect to localhost:8080 when running this test */
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         try {
             ServerSocket socket = Server.createServerSocket(port);
             Socket acceptedSocket = Server.acceptConnectedSocket(socket);
@@ -174,7 +174,7 @@ public class WebServerTest {
 
     @Test
     public void readInputStream_NullSocket_ThrowsNullPointerException() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         Assertions.assertThrows(NullPointerException.class,() -> {
             Socket acceptedSocket = null;
             Server.readInputStream(acceptedSocket);
@@ -183,12 +183,12 @@ public class WebServerTest {
 
     @Test
     public void sendOutputStream_Success_ServerRunning() {
-        /* Connect to localhost:port when running this test */
-        WebServer Server = new WebServer(8082, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        /* Connect to localhost:8082 when running this test */
+        WebServer Server = new WebServer(8082, "E:/VVSWebServer/TestFiles", "Running");
         try {
             ServerSocket socket = Server.createServerSocket(8082);
             Socket acceptedSocket = Server.acceptConnectedSocket(socket);
-            Server.sendOutputStream(acceptedSocket, Paths.get("E:/IntelliJ-workspace/WebServer/TestSite/a.html"),"HTTP/1.1");
+            Server.sendOutputStream(acceptedSocket, Paths.get("E:/VVSWebServer/TestFiles/a.html"),"HTTP/1.1");
 
             acceptedSocket.close();
             socket.close();
@@ -203,18 +203,54 @@ public class WebServerTest {
 
     @Test
     public void sendOutputStream_NullSocket_ThrowsNullPointerException() {
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
         Assertions.assertThrows(NullPointerException.class,() -> {
             Socket acceptedSocket = null;
-            Server.sendOutputStream(acceptedSocket, Paths.get("E:/IntelliJ-workspace/WebServer/TestSite/a.html"),"HTTP/1.1");
+            Server.sendOutputStream(acceptedSocket, Paths.get("E:/VVSWebServer/TestFiles/a.html"),"HTTP/1.1");
 
         });
     }
 
     @Test
     public void handleRequest_Success_ServerRunning() {
-        /* Connect to localhost:port/a.html when running this test */
-        WebServer Server = new WebServer(port, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        /* Connect to localhost:8080 when running this test */
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
+        try {
+            Server.handleRequest();
+        }catch(Exception e)
+        {
+            Assertions.fail(e);
+        }
+    }
+
+    @Test
+    public void handleRequest_Success_ServerRunning_FileNotFound() {
+        /* Connect to localhost:8080/asdf.html when running this test */
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Running");
+        try {
+            Server.handleRequest();
+        }catch(Exception e)
+        {
+            Assertions.fail(e);
+        }
+    }
+
+    @Test
+    public void handleRequest_Success_ServerMaintenance() {
+        /* Connect to localhost:8080 when running this test */
+        WebServer Server = new WebServer(port, "E:/VVSWebServer/TestFiles", "Maintenance");
+        try {
+            Server.handleRequest();
+        }catch(Exception e)
+        {
+            Assertions.fail(e);
+        }
+    }
+
+    @Test
+    public void handleRequest_Success_ServerStopped() {
+        /* Connect to localhost:8081 when running this test */
+        WebServer Server = new WebServer(8081, "E:/VVSWebServer/TestFiles", "Stopped");
         try {
             Server.handleRequest();
         }catch(Exception e)
@@ -225,7 +261,7 @@ public class WebServerTest {
 
     @Test
     public void handleRequest_NullHome_ThrowsNoSuchFileException() {
-        /* Connect to localhost:port/a.html when running this test */
+        /* Connect to localhost:8081 when running this test */
         WebServer Server = new WebServer(8081, null, "Running");
         Assertions.assertThrows(NoSuchFileException.class,() -> {
             Server.handleRequest();

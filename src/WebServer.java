@@ -1,4 +1,7 @@
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.BindException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -7,7 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class WebServer extends Thread{
+public class WebServer extends Thread {
     private int port;
     private String home;
     private String status;
@@ -77,8 +80,7 @@ public class WebServer extends Thread{
 
     public Socket acceptConnectedSocket(ServerSocket socket) throws Exception {
         try {
-            Socket acceptedSocket = socket.accept();
-            return acceptedSocket;
+            return socket.accept();
         } catch(Exception e) {
             System.out.println("Error accepting connected socket.");
             System.out.println("Exception: " + e);
@@ -100,7 +102,7 @@ public class WebServer extends Thread{
     public ArrayList<String> readInputStream(Socket acceptedSocket) throws Exception{
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(acceptedSocket.getInputStream()));
-            ArrayList<String> InputStream = new ArrayList<String>();
+            ArrayList<String> InputStream = new ArrayList<>();
             String s;
             while((s = in.readLine()) != null) {
                 InputStream.add(s);
@@ -120,19 +122,44 @@ public class WebServer extends Thread{
         try {
             OutputStream out = acceptedSocket.getOutputStream();
             String status = this.getStatus();
-            String contentType = Files.probeContentType(filePath);
-            byte[] fileContent = Files.readAllBytes(filePath);
             switch (status) {
-                case "Running":
-                    out.write((version + " \r\n200 OK").getBytes());
+                case "Running" -> {
+                    if (Files.exists(filePath)) {
+                        String contentType = Files.probeContentType(filePath);
+                        byte[] fileContent = Files.readAllBytes(filePath);
+                        out.write((version + " \r\n200 OK").getBytes());
+                        out.write(("ContentType: " + contentType + "\r\n").getBytes());
+                        out.write("\r\n".getBytes());
+                        out.write(fileContent);
+                        out.write("\r\n\r\n".getBytes());
+                    } else {
+                        String contentType = Files.probeContentType(Paths.get(this.getHome(), "404.html"));
+                        byte[] fileContent = Files.readAllBytes(Paths.get(this.getHome(), "404.html"));
+                        out.write((version + " \r\n404 Not Found").getBytes());
+                        out.write(("ContentType: " + contentType + "\r\n").getBytes());
+                        out.write("\r\n".getBytes());
+                        out.write(fileContent);
+                        out.write("\r\n\r\n".getBytes());
+                    }
+                }
+                case "Maintenance" -> {
+                    String contentType = Files.probeContentType(Paths.get(this.getHome(), "Maintenance.html"));
+                    byte[] fileContent = Files.readAllBytes(Paths.get(this.getHome(), "Maintenance.html"));
+                    out.write((version + " \r\n503 Service Unavailable").getBytes());
                     out.write(("ContentType: " + contentType + "\r\n").getBytes());
                     out.write("\r\n".getBytes());
                     out.write(fileContent);
                     out.write("\r\n\r\n".getBytes());
-                    break;
-                case "Stopped":
-                    out.write(((version + " \r\n").getBytes()));
-                    break;
+                }
+                case "Stopped" -> {
+                    String contentType = Files.probeContentType(Paths.get(this.getHome(), "Stopped.html"));
+                    byte[] fileContent = Files.readAllBytes(Paths.get(this.getHome(), "Stopped.html"));
+                    out.write((version + " \r\n503 Service Unavailable").getBytes());
+                    out.write(("ContentType: " + contentType + "\r\n").getBytes());
+                    out.write("\r\n".getBytes());
+                    out.write(fileContent);
+                    out.write("\r\n\r\n".getBytes());
+                }
             }
             out.close();
 
@@ -150,6 +177,9 @@ public class WebServer extends Thread{
             ArrayList<String> inputStream = readInputStream(acceptedSocket);
             if(inputStream.size() != 0) {
                 String path = inputStream.get(0).split(" ")[1];
+                if(path.equals("/")) {
+                    path = "/index.html";
+                }
                 try {
                     path = this.getHome() + path;
                 }catch(NullPointerException nullPointerException) {
@@ -173,17 +203,14 @@ public class WebServer extends Thread{
 }
 
 class Main {
-    public boolean isTest = false;
-
-
     public static void main(String[] args) {
-        WebServer Server = new WebServer(8080, "E:/IntelliJ-workspace/WebServer/TestSite", "Running");
+        WebServer Server = new WebServer(8080, "E:/VVSWebServer/TestFiles", "Running");
         for(;;)
         {
             try{
                 Server.handleRequest();
                 if(args.length>0) {
-                    if(args[0]=="Test") {
+                    if(args[0].equals("Test")) {
                         break;
                     }
                 }
