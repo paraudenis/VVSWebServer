@@ -152,13 +152,7 @@ public class WebServer extends Thread {
                     out.write("\r\n\r\n".getBytes());
                 }
                 case "Stopped" -> {
-                    String contentType = Files.probeContentType(Paths.get(this.getHome(), "Stopped.html"));
-                    byte[] fileContent = Files.readAllBytes(Paths.get(this.getHome(), "Stopped.html"));
-                    out.write((version + " \r\n503 Service Unavailable").getBytes());
-                    out.write(("ContentType: " + contentType + "\r\n").getBytes());
-                    out.write("\r\n".getBytes());
-                    out.write(fileContent);
-                    out.write("\r\n\r\n".getBytes());
+                    System.out.println("Request made while WebServer is stopped.");
                 }
                 default -> {
                     System.out.println("The current WebServer status is not defined.");

@@ -1,0 +1,477 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: WebServerGUI</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: WebServerGUI (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">WebServerGUI</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 73)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">WebServerGUI$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 21)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">WebServerGUI$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 21)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">WebServerGUI$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 21)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">WebServerGUI$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 6)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">WebServerGUI$5</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 12)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">WebServerGUI$6</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 156)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import javax.swing.*;
+<i>2</i>&nbsp;import java.awt.*;
+<i>3</i>&nbsp;import java.awt.event.ActionEvent;
+<i>4</i>&nbsp;import java.awt.event.ActionListener;
+<i>5</i>&nbsp;import java.nio.file.Files;
+<i>6</i>&nbsp;import java.nio.file.Paths;
+<i>7</i>&nbsp;import java.util.ArrayList;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public class WebServerGUI extends Thread {
+<i>10</i>&nbsp;    private JButton startWebServerButton;
+<i>11</i>&nbsp;    private JPanel panel;
+<i>12</i>&nbsp;    private JButton maintenanceModeButton;
+<i>13</i>&nbsp;    private JButton stopWebServerButton;
+<i>14</i>&nbsp;    private JTextField homeFolderTextbox;
+<i>15</i>&nbsp;    private JButton setHomeFolderButton;
+<i>16</i>&nbsp;    private JTextField portTextbox;
+<i>17</i>&nbsp;    private JButton setPortButton;
+<i>18</i>&nbsp;    private JTextArea outputTextArea;
+<i>19</i>&nbsp;    private JLabel serverStatusLabel;
+<i>20</i>&nbsp;
+<b class="nc"><i>21</i>&nbsp;    private String webServerStatus = &quot;Stopped&quot;;</b>
+<i>22</i>&nbsp;    private int webServerPort;
+<i>23</i>&nbsp;    private String webServerHome;
+<b class="nc"><i>24</i>&nbsp;    private String outputText = &quot;&quot;;</b>
+<i>25</i>&nbsp;    private WebServer server;
+<i>26</i>&nbsp;
+<b class="nc"><i>27</i>&nbsp;    public WebServerGUI() {</b>
+<b class="nc"><i>28</i>&nbsp;        startWebServerButton.addActionListener(new ActionListener() {</b>
+<i>29</i>&nbsp;            @Override
+<i>30</i>&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc"><i>31</i>&nbsp;                if (webServerStatus.equals(&quot;Stopped&quot;) || webServerStatus.equals(&quot;Maintenance&quot;)) {</b>
+<b class="nc"><i>32</i>&nbsp;                    if (homeFolderTextbox.getText().isEmpty() == false &amp;&amp; Files.exists(Paths.get(homeFolderTextbox.getText()))) {</b>
+<b class="nc"><i>33</i>&nbsp;                        if (portTextbox.getText().isEmpty() == false) {</b>
+<i>34</i>&nbsp;                            try {
+<b class="nc"><i>35</i>&nbsp;                                int port = Integer.parseInt(portTextbox.getText());</b>
+<b class="nc"><i>36</i>&nbsp;                                if (port &gt;= 0 &amp;&amp; port &lt;= 65535) {</b>
+<b class="nc"><i>37</i>&nbsp;                                    webServerPort = port;</b>
+<b class="nc"><i>38</i>&nbsp;                                    server.setPort(webServerPort);</b>
+<b class="nc"><i>39</i>&nbsp;                                    webServerHome = homeFolderTextbox.getText();</b>
+<b class="nc"><i>40</i>&nbsp;                                    server.setHome(webServerHome);</b>
+<b class="nc"><i>41</i>&nbsp;                                    webServerStatus = &quot;Running&quot;;</b>
+<b class="nc"><i>42</i>&nbsp;                                    server.setStatus(&quot;Running&quot;);</b>
+<b class="nc"><i>43</i>&nbsp;                                    serverStatusLabel.setText(&quot;WebServer status: Running&quot;);</b>
+<b class="nc"><i>44</i>&nbsp;                                    writeInOutputTextbox(&quot;Server running.&quot;);</b>
+<i>45</i>&nbsp;                                } else {
+<b class="nc"><i>46</i>&nbsp;                                    writeInOutputTextbox(&quot;Please enter an integer in the port textbox.&quot;);</b>
+<i>47</i>&nbsp;                                }
+<b class="nc"><i>48</i>&nbsp;                            } catch (NumberFormatException numberFormatException) {</b>
+<b class="nc"><i>49</i>&nbsp;                                writeInOutputTextbox(&quot;Please enter an integer in the port textbox.&quot;);</b>
+<b class="nc"><i>50</i>&nbsp;                            }</b>
+<i>51</i>&nbsp;                        } else {
+<b class="nc"><i>52</i>&nbsp;                            writeInOutputTextbox(&quot;Please enter a port.&quot;);</b>
+<i>53</i>&nbsp;                        }
+<i>54</i>&nbsp;
+<i>55</i>&nbsp;                    } else {
+<b class="nc"><i>56</i>&nbsp;                        writeInOutputTextbox(&quot;Please enter a correct path for home address.&quot;);</b>
+<i>57</i>&nbsp;                    }
+<i>58</i>&nbsp;                } else {
+<b class="nc"><i>59</i>&nbsp;                    writeInOutputTextbox(&quot;Server is already running.&quot;);</b>
+<i>60</i>&nbsp;                }
+<i>61</i>&nbsp;            }
+<i>62</i>&nbsp;        });
+<b class="nc"><i>63</i>&nbsp;        maintenanceModeButton.addActionListener(new ActionListener() {</b>
+<i>64</i>&nbsp;            @Override
+<i>65</i>&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc"><i>66</i>&nbsp;                if (webServerStatus.equals(&quot;Stopped&quot;) || webServerStatus.equals(&quot;Running&quot;)) {</b>
+<b class="nc"><i>67</i>&nbsp;                    if (homeFolderTextbox.getText().isEmpty() == false &amp;&amp; Files.exists(Paths.get(homeFolderTextbox.getText()))) {</b>
+<b class="nc"><i>68</i>&nbsp;                        if (portTextbox.getText().isEmpty() == false) {</b>
+<i>69</i>&nbsp;                            try {
+<b class="nc"><i>70</i>&nbsp;                                int port = Integer.parseInt(portTextbox.getText());</b>
+<b class="nc"><i>71</i>&nbsp;                                if (port &gt;= 0 &amp;&amp; port &lt;= 65535) {</b>
+<b class="nc"><i>72</i>&nbsp;                                    webServerPort = port;</b>
+<b class="nc"><i>73</i>&nbsp;                                    server.setPort(webServerPort);</b>
+<b class="nc"><i>74</i>&nbsp;                                    webServerHome = homeFolderTextbox.getText();</b>
+<b class="nc"><i>75</i>&nbsp;                                    server.setHome(webServerHome);</b>
+<b class="nc"><i>76</i>&nbsp;                                    webServerStatus = &quot;Maintenance&quot;;</b>
+<b class="nc"><i>77</i>&nbsp;                                    server.setStatus(&quot;Maintenance&quot;);</b>
+<b class="nc"><i>78</i>&nbsp;                                    serverStatusLabel.setText(&quot;WebServer status: Maintenance mode&quot;);</b>
+<b class="nc"><i>79</i>&nbsp;                                    writeInOutputTextbox(&quot;Server running in maintenance mode.&quot;);</b>
+<i>80</i>&nbsp;                                } else {
+<b class="nc"><i>81</i>&nbsp;                                    writeInOutputTextbox(&quot;Please enter an integer between 0 and 65535 in the port textbox.&quot;);</b>
+<i>82</i>&nbsp;                                }
+<b class="nc"><i>83</i>&nbsp;                            } catch (NumberFormatException numberFormatException) {</b>
+<b class="nc"><i>84</i>&nbsp;                                writeInOutputTextbox(&quot;Please enter an integer in the port textbox.&quot;);</b>
+<b class="nc"><i>85</i>&nbsp;                            }</b>
+<i>86</i>&nbsp;                        } else {
+<b class="nc"><i>87</i>&nbsp;                            writeInOutputTextbox(&quot;Please enter a port.&quot;);</b>
+<i>88</i>&nbsp;                        }
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;                    } else {
+<b class="nc"><i>91</i>&nbsp;                        writeInOutputTextbox(&quot;Please enter a correct path for home address.&quot;);</b>
+<i>92</i>&nbsp;                    }
+<i>93</i>&nbsp;                } else {
+<b class="nc"><i>94</i>&nbsp;                    writeInOutputTextbox(&quot;Server is already in maintenance mode.&quot;);</b>
+<i>95</i>&nbsp;                }
+<i>96</i>&nbsp;            }
+<i>97</i>&nbsp;        });
+<b class="nc"><i>98</i>&nbsp;        stopWebServerButton.addActionListener(new ActionListener() {</b>
+<i>99</i>&nbsp;            @Override
+<i>100</i>&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc"><i>101</i>&nbsp;                if (webServerStatus.equals(&quot;Running&quot;) || webServerStatus.equals(&quot;Maintenance&quot;)) {</b>
+<b class="nc"><i>102</i>&nbsp;                    if (homeFolderTextbox.getText().isEmpty() == false &amp;&amp; Files.exists(Paths.get(homeFolderTextbox.getText()))) {</b>
+<b class="nc"><i>103</i>&nbsp;                        if (portTextbox.getText().isEmpty() == false) {</b>
+<i>104</i>&nbsp;                            try {
+<b class="nc"><i>105</i>&nbsp;                                int port = Integer.parseInt(portTextbox.getText());</b>
+<b class="nc"><i>106</i>&nbsp;                                if (port &gt;= 0 &amp;&amp; port &lt;= 65535) {</b>
+<b class="nc"><i>107</i>&nbsp;                                    webServerPort = port;</b>
+<b class="nc"><i>108</i>&nbsp;                                    server.setPort(webServerPort);</b>
+<b class="nc"><i>109</i>&nbsp;                                    webServerHome = homeFolderTextbox.getText();</b>
+<b class="nc"><i>110</i>&nbsp;                                    server.setHome(webServerHome);</b>
+<b class="nc"><i>111</i>&nbsp;                                    webServerStatus = &quot;Stopped&quot;;</b>
+<b class="nc"><i>112</i>&nbsp;                                    server.setStatus(&quot;Stopped&quot;);</b>
+<b class="nc"><i>113</i>&nbsp;                                    serverStatusLabel.setText(&quot;WebServer status: Stopped&quot;);</b>
+<b class="nc"><i>114</i>&nbsp;                                    writeInOutputTextbox(&quot;Server stopped.&quot;);</b>
+<i>115</i>&nbsp;                                } else {
+<b class="nc"><i>116</i>&nbsp;                                    writeInOutputTextbox(&quot;Please enter an integer in the port textbox.&quot;);</b>
+<i>117</i>&nbsp;                                }
+<b class="nc"><i>118</i>&nbsp;                            } catch (NumberFormatException numberFormatException) {</b>
+<b class="nc"><i>119</i>&nbsp;                                writeInOutputTextbox(&quot;Please enter an integer in the port textbox.&quot;);</b>
+<b class="nc"><i>120</i>&nbsp;                            }</b>
+<i>121</i>&nbsp;                        } else {
+<b class="nc"><i>122</i>&nbsp;                            writeInOutputTextbox(&quot;Please enter a port.&quot;);</b>
+<i>123</i>&nbsp;                        }
+<i>124</i>&nbsp;
+<i>125</i>&nbsp;                    } else {
+<b class="nc"><i>126</i>&nbsp;                        writeInOutputTextbox(&quot;Please enter a correct path for home address.&quot;);</b>
+<i>127</i>&nbsp;                    }
+<i>128</i>&nbsp;                } else {
+<b class="nc"><i>129</i>&nbsp;                    writeInOutputTextbox(&quot;Server is already stopped.&quot;);</b>
+<i>130</i>&nbsp;                }
+<i>131</i>&nbsp;            }
+<i>132</i>&nbsp;        });
+<b class="nc"><i>133</i>&nbsp;        setHomeFolderButton.addActionListener(new ActionListener() {</b>
+<i>134</i>&nbsp;            @Override
+<i>135</i>&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc"><i>136</i>&nbsp;                if (homeFolderTextbox.getText().isEmpty() == false &amp;&amp; Files.exists(Paths.get(homeFolderTextbox.getText()))) {</b>
+<b class="nc"><i>137</i>&nbsp;                    webServerHome = homeFolderTextbox.getText();</b>
+<b class="nc"><i>138</i>&nbsp;                    server.setHome(webServerHome);</b>
+<b class="nc"><i>139</i>&nbsp;                    writeInOutputTextbox(&quot;Home path modified to: \&quot;&quot; + webServerHome + &quot;\&quot;.&quot;);</b>
+<i>140</i>&nbsp;                } else {
+<b class="nc"><i>141</i>&nbsp;                    writeInOutputTextbox(&quot;Please enter a correct path for home address.&quot;);</b>
+<i>142</i>&nbsp;                }
+<i>143</i>&nbsp;            }
+<i>144</i>&nbsp;        });
+<b class="nc"><i>145</i>&nbsp;        setPortButton.addActionListener(new ActionListener() {</b>
+<i>146</i>&nbsp;            @Override
+<i>147</i>&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc"><i>148</i>&nbsp;                if (portTextbox.getText().isEmpty() == false) {</b>
+<i>149</i>&nbsp;                    try {
+<b class="nc"><i>150</i>&nbsp;                        int port = Integer.parseInt(portTextbox.getText());</b>
+<b class="nc"><i>151</i>&nbsp;                        if (port &gt;= 0 &amp;&amp; port &lt;= 65535) {</b>
+<b class="nc"><i>152</i>&nbsp;                            webServerPort = port;</b>
+<b class="nc"><i>153</i>&nbsp;                            server.setPort(webServerPort);</b>
+<b class="nc"><i>154</i>&nbsp;                            writeInOutputTextbox(&quot;Port switched to: &quot; + webServerPort);</b>
+<i>155</i>&nbsp;                        } else {
+<b class="nc"><i>156</i>&nbsp;                            writeInOutputTextbox(&quot;Please enter an integer between 0 and 65535 in the port textbox.&quot;);</b>
+<i>157</i>&nbsp;                        }
+<b class="nc"><i>158</i>&nbsp;                    } catch (NumberFormatException numberFormatException) {</b>
+<b class="nc"><i>159</i>&nbsp;                        writeInOutputTextbox(&quot;Please enter an integer in the port textbox.&quot;);</b>
+<b class="nc"><i>160</i>&nbsp;                    }</b>
+<i>161</i>&nbsp;                } else {
+<b class="nc"><i>162</i>&nbsp;                    writeInOutputTextbox(&quot;Please enter a port.&quot;);</b>
+<i>163</i>&nbsp;                }
+<i>164</i>&nbsp;            }
+<i>165</i>&nbsp;        });
+<i>166</i>&nbsp;
+<b class="nc"><i>167</i>&nbsp;        Thread thread = new Thread(new Runnable() {</b>
+<i>168</i>&nbsp;            @Override
+<i>169</i>&nbsp;            public void run() {
+<b class="nc"><i>170</i>&nbsp;                runWebServer();</b>
+<i>171</i>&nbsp;            }
+<i>172</i>&nbsp;        });
+<b class="nc"><i>173</i>&nbsp;        thread.start();</b>
+<i>174</i>&nbsp;    }
+<i>175</i>&nbsp;
+<i>176</i>&nbsp;    public void writeInOutputTextbox(String s) {
+<b class="nc"><i>177</i>&nbsp;        outputText += s + &quot;\n&quot;;</b>
+<b class="nc"><i>178</i>&nbsp;        outputTextArea.setText(outputText);</b>
+<i>179</i>&nbsp;    }
+<i>180</i>&nbsp;
+<i>181</i>&nbsp;    public void runWebServer() {
+<b class="nc"><i>182</i>&nbsp;        server = new WebServer(8080, &quot;E:/VVSWebServer/TestFiles&quot;, &quot;Stopped&quot;);</b>
+<b class="nc"><i>183</i>&nbsp;        webServerStatus = &quot;Stopped&quot;;</b>
+<b class="nc"><i>184</i>&nbsp;        serverStatusLabel.setText(&quot;WebServer status: Stopped&quot;);</b>
+<b class="nc"><i>185</i>&nbsp;        webServerHome = &quot;E:/VVSWebServer/TestFiles&quot;;</b>
+<b class="nc"><i>186</i>&nbsp;        homeFolderTextbox.setText(webServerHome);</b>
+<b class="nc"><i>187</i>&nbsp;        webServerPort = 8080;</b>
+<b class="nc"><i>188</i>&nbsp;        portTextbox.setText(&quot;8080&quot;);</b>
+<i>189</i>&nbsp;        for (; ; ) {
+<i>190</i>&nbsp;            try {
+<b class="nc"><i>191</i>&nbsp;                server.handleRequest();</b>
+<b class="nc"><i>192</i>&nbsp;            } catch (Exception e) {</b>
+<b class="nc"><i>193</i>&nbsp;                writeInOutputTextbox(&quot;Exception: &quot; + e);</b>
+<b class="nc"><i>194</i>&nbsp;            }</b>
+<i>195</i>&nbsp;        }
+<i>196</i>&nbsp;    }
+<i>197</i>&nbsp;
+<i>198</i>&nbsp;    public static void main(String[] args) {
+<b class="nc"><i>199</i>&nbsp;        JFrame frame = new JFrame(&quot;WebServerGUI&quot;);</b>
+<b class="nc"><i>200</i>&nbsp;        frame.setContentPane(new WebServerGUI().panel);</b>
+<b class="nc"><i>201</i>&nbsp;        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</b>
+<b class="nc"><i>202</i>&nbsp;        frame.pack();</b>
+<b class="nc"><i>203</i>&nbsp;        frame.setVisible(true);</b>
+<i>204</i>&nbsp;    }
+<i>205</i>&nbsp;
+<i>206</i>&nbsp;    {
+<i>207</i>&nbsp;// GUI initializer generated by IntelliJ IDEA GUI Designer
+<i>208</i>&nbsp;// &gt;&gt;&gt; IMPORTANT!! &lt;&lt;&lt;
+<i>209</i>&nbsp;// DO NOT EDIT OR ADD ANY CODE HERE!
+<b class="nc"><i>210</i>&nbsp;        $$$setupUI$$$();</b>
+<i>211</i>&nbsp;    }
+<i>212</i>&nbsp;
+<i>213</i>&nbsp;    /**
+<i>214</i>&nbsp;     * Method generated by IntelliJ IDEA GUI Designer
+<i>215</i>&nbsp;     * &gt;&gt;&gt; IMPORTANT!! &lt;&lt;&lt;
+<i>216</i>&nbsp;     * DO NOT edit this method OR call it in your code!
+<i>217</i>&nbsp;     *
+<i>218</i>&nbsp;     * @noinspection ALL
+<i>219</i>&nbsp;     */
+<i>220</i>&nbsp;    private void $$$setupUI$$$() {
+<b class="nc"><i>221</i>&nbsp;        panel = new JPanel();</b>
+<b class="nc"><i>222</i>&nbsp;        panel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(7, 4, new Insets(10, 10, 10, 10), -1, -1));</b>
+<b class="nc"><i>223</i>&nbsp;        panel.setEnabled(true);</b>
+<b class="nc"><i>224</i>&nbsp;        startWebServerButton = new JButton();</b>
+<b class="nc"><i>225</i>&nbsp;        startWebServerButton.setText(&quot;Start WebServer&quot;);</b>
+<b class="nc"><i>226</i>&nbsp;        panel.add(startWebServerButton, new com.intellij.uiDesigner.core.GridConstraints(1, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));</b>
+<b class="nc"><i>227</i>&nbsp;        maintenanceModeButton = new JButton();</b>
+<b class="nc"><i>228</i>&nbsp;        maintenanceModeButton.setText(&quot;Maintenance Mode&quot;);</b>
+<b class="nc"><i>229</i>&nbsp;        panel.add(maintenanceModeButton, new com.intellij.uiDesigner.core.GridConstraints(2, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));</b>
+<b class="nc"><i>230</i>&nbsp;        homeFolderTextbox = new JTextField();</b>
+<b class="nc"><i>231</i>&nbsp;        homeFolderTextbox.setText(&quot;&quot;);</b>
+<b class="nc"><i>232</i>&nbsp;        panel.add(homeFolderTextbox, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(300, -1), null, 0, false));</b>
+<b class="nc"><i>233</i>&nbsp;        final JLabel label1 = new JLabel();</b>
+<b class="nc"><i>234</i>&nbsp;        label1.setText(&quot;Home folder:&quot;);</b>
+<b class="nc"><i>235</i>&nbsp;        panel.add(label1, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));</b>
+<b class="nc"><i>236</i>&nbsp;        setHomeFolderButton = new JButton();</b>
+<b class="nc"><i>237</i>&nbsp;        setHomeFolderButton.setText(&quot;Set Home Folder&quot;);</b>
+<b class="nc"><i>238</i>&nbsp;        panel.add(setHomeFolderButton, new com.intellij.uiDesigner.core.GridConstraints(2, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));</b>
+<b class="nc"><i>239</i>&nbsp;        final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();</b>
+<b class="nc"><i>240</i>&nbsp;        panel.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));</b>
+<b class="nc"><i>241</i>&nbsp;        final JLabel label2 = new JLabel();</b>
+<b class="nc"><i>242</i>&nbsp;        label2.setText(&quot;Port:&quot;);</b>
+<b class="nc"><i>243</i>&nbsp;        panel.add(label2, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));</b>
+<b class="nc"><i>244</i>&nbsp;        setPortButton = new JButton();</b>
+<b class="nc"><i>245</i>&nbsp;        setPortButton.setText(&quot;Set Port&quot;);</b>
+<b class="nc"><i>246</i>&nbsp;        panel.add(setPortButton, new com.intellij.uiDesigner.core.GridConstraints(4, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));</b>
+<b class="nc"><i>247</i>&nbsp;        portTextbox = new JTextField();</b>
+<b class="nc"><i>248</i>&nbsp;        portTextbox.setText(&quot;&quot;);</b>
+<b class="nc"><i>249</i>&nbsp;        panel.add(portTextbox, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));</b>
+<b class="nc"><i>250</i>&nbsp;        stopWebServerButton = new JButton();</b>
+<b class="nc"><i>251</i>&nbsp;        stopWebServerButton.setText(&quot;Stop WebServer&quot;);</b>
+<b class="nc"><i>252</i>&nbsp;        panel.add(stopWebServerButton, new com.intellij.uiDesigner.core.GridConstraints(3, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));</b>
+<b class="nc"><i>253</i>&nbsp;        final JLabel label3 = new JLabel();</b>
+<b class="nc"><i>254</i>&nbsp;        label3.setText(&quot;Text Output:&quot;);</b>
+<b class="nc"><i>255</i>&nbsp;        panel.add(label3, new com.intellij.uiDesigner.core.GridConstraints(5, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));</b>
+<b class="nc"><i>256</i>&nbsp;        final JScrollPane scrollPane1 = new JScrollPane();</b>
+<b class="nc"><i>257</i>&nbsp;        panel.add(scrollPane1, new com.intellij.uiDesigner.core.GridConstraints(6, 0, 1, 4, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));</b>
+<b class="nc"><i>258</i>&nbsp;        outputTextArea = new JTextArea();</b>
+<b class="nc"><i>259</i>&nbsp;        outputTextArea.setText(&quot;&quot;);</b>
+<b class="nc"><i>260</i>&nbsp;        scrollPane1.setViewportView(outputTextArea);</b>
+<b class="nc"><i>261</i>&nbsp;        serverStatusLabel = new JLabel();</b>
+<b class="nc"><i>262</i>&nbsp;        serverStatusLabel.setText(&quot;Server Status:&quot;);</b>
+<b class="nc"><i>263</i>&nbsp;        panel.add(serverStatusLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 4, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));</b>
+<i>264</i>&nbsp;    }
+<i>265</i>&nbsp;
+<i>266</i>&nbsp;    /**
+<i>267</i>&nbsp;     * @noinspection ALL
+<i>268</i>&nbsp;     */
+<i>269</i>&nbsp;    public JComponent $$$getRootComponent$$$() {
+<b class="nc"><i>270</i>&nbsp;        return panel;</b>
+<i>271</i>&nbsp;    }
+<i>272</i>&nbsp;
+<i>273</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-12-17 23:53</div>
+</div>
+</body>
+</html>

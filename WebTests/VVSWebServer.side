@@ -1,0 +1,871 @@
+{
+  "id": "58af4c51-801b-4528-b70b-a282177637fc",
+  "version": "2.0",
+  "name": "VVSWebServer",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "e42e9a44-bca2-4c9a-96f9-b1a41b5dea77",
+    "name": "Go to google from index page.",
+    "commands": [{
+      "id": "b59652a1-21eb-444a-8941-7b59ce660df4",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "122be687-d3a2-4767-9bc9-f5efcc6de111",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "70840e4b-c7fb-4d25-8844-626c6ef47cc3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=google.com",
+      "targets": [
+        ["linkText=google.com", "linkText"],
+        ["css=a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'google.com')]", "xpath:link"],
+        ["xpath=//a[@href='http://google.com']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'google.com')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "44d1e910-cdb0-4567-809e-63a11187db62",
+    "name": "Open page with images and go back to index.",
+    "commands": [{
+      "id": "bf053ab2-dfa1-405d-8ea5-24f35381c804",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9ce41e86-21ca-40b3-996c-5361548d0723",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dfde38a8-c435-4e86-9093-8ffcad6cd845",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page with images",
+      "targets": [
+        ["linkText=Page with images", "linkText"],
+        ["css=div:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page with images')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'pageWithImages.html')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page with images')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb7e5293-8096-4cc4-a8a6-73d6d6a43041",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=back",
+      "targets": [
+        ["linkText=back", "linkText"],
+        ["css=a", "css:finder"],
+        ["xpath=//a[contains(text(),'back')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'back')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4eea1ac0-6caf-4aba-a088-4ba895e2def1",
+    "name": "Open page in different folder and go back to index.",
+    "commands": [{
+      "id": "13476184-1d9f-49bd-9d81-f27a3f9a3af4",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac8d9398-426c-46c1-8224-be3b96d6b7ec",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b7304930-7b01-4e88-b6f1-cebf022a62b4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page in different folder",
+      "targets": [
+        ["linkText=Page in different folder", "linkText"],
+        ["css=div:nth-child(3) > div > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page in different folder')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'asdf/asdf.html')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page in different folder')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce6c5258-c71b-4132-bf72-16e02f6d6209",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=back",
+      "targets": [
+        ["linkText=back", "linkText"],
+        ["css=a", "css:finder"],
+        ["xpath=//a[contains(text(),'back')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'back')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "92523780-803a-49d6-9f3c-d21c88cc7fd5",
+    "name": "Open text file.",
+    "commands": [{
+      "id": "87a72356-49de-4c82-8095-ec42fcdd4496",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74e0aff9-271e-4090-adfd-8c43b5f46e6e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "af982973-df97-4e3a-94cc-f602f4315a24",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Text file",
+      "targets": [
+        ["linkText=Text file", "linkText"],
+        ["css=div:nth-child(2) > div > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Text file')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'text.txt')]", "xpath:href"],
+        ["xpath=//div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Text file')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e5bc787f-7e89-4789-8d53-16108b8abcde",
+    "name": "Open page that doesn't exist and go back to index.",
+    "commands": [{
+      "id": "bb70c26d-0c1d-4fab-a767-4973e5077348",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2198ff8d-9c3e-4ab4-a4ac-97dc7f29b381",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "764fa84c-e656-42a8-8508-bab22723e63e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page that doesn't exist",
+      "targets": [
+        ["linkText=Page that doesn't exist", "linkText"],
+        ["css=div:nth-child(2) > div > div > a", "css:finder"],
+        ["xpath=//a[contains(@href, 'xyz.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "531cf308-bc5e-43f1-9a29-908ac89b5f80",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=back",
+      "targets": [
+        ["linkText=back", "linkText"],
+        ["css=a", "css:finder"],
+        ["xpath=//a[contains(text(),'back')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'back')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "06cc86f7-c0f8-4857-b757-8f4ad51534a2",
+    "name": "Open index with server in maintenance mode.",
+    "commands": [{
+      "id": "084aa953-5d21-4b1c-981f-3c493298ea3e",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "09cf13ee-4ee9-4ee8-82f8-820831867bbb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2bf6881f-7d8a-41a8-9b3c-5d14eccd51e3",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"],
+        ["xpath=//body[contains(.,'WebServer is under maintenance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "72365ee5-a14d-4ac0-8181-3e6adb5cd575",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "600976c2-c1fe-40aa-9633-c6f654c7e3d6",
+    "name": "Open template page.",
+    "commands": [{
+      "id": "ced7c599-8a63-4231-8892-986028f1031f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b3b57c8-d648-4042-a398-d933f54f3b00",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9136f627-9623-4e11-a7f2-ff699e7d81c6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Template page with CSS",
+      "targets": [
+        ["linkText=Template page with CSS", "linkText"],
+        ["css=div:nth-child(2) > div > div > div > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Template page with CSS')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'TemplateWithCSS.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Template page with CSS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "91a54d0e-5c93-4300-a9f7-a5132a5eafc6",
+      "comment": "",
+      "command": "click",
+      "target": "css=#home > .w3-image",
+      "targets": [
+        ["css=#home > .w3-image", "css:finder"],
+        ["xpath=//img[@alt='Hamburger Catering']", "xpath:img"],
+        ["xpath=//header[@id='home']/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6485f98-d6ca-4dff-a23b-8cf0fe144375",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "19b7ffbd-3545-489e-8fb1-b2a2d3696673",
+    "name": "Open template page and click on About",
+    "commands": [{
+      "id": "35ddcda5-8f1a-4225-b723-fcb771dadeee",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "754552b5-dcac-45fb-8c65-a24e64cb7f06",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "84006eb4-2cf2-4376-bfe1-b1dccb4a6ae3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Template page with CSS",
+      "targets": [
+        ["linkText=Template page with CSS", "linkText"],
+        ["css=div:nth-child(2) > div > div > div > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Template page with CSS')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'TemplateWithCSS.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Template page with CSS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "447c18b2-40d2-435a-98e7-df4714828825",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=About",
+      "targets": [
+        ["linkText=About", "linkText"],
+        ["css=.w3-right > .w3-bar-item:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'About')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '#about')]", "xpath:href"],
+        ["xpath=//div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'About')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "db24a97b-9362-4896-83b3-a628895d073d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "9c1527c4-74f8-474a-9400-7b9a5052ab54",
+    "name": "Open template page and click on Menu.",
+    "commands": [{
+      "id": "9a7c64c6-406b-4a57-95af-641c8101cd29",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a84750f7-c49c-44aa-a938-e1ee8734f1ea",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ae98c088-0afa-431e-be70-38a2596d035a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Template page with CSS",
+      "targets": [
+        ["linkText=Template page with CSS", "linkText"],
+        ["css=div:nth-child(2) > div > div > div > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Template page with CSS')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'TemplateWithCSS.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Template page with CSS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a28a6466-8bf9-4f95-8b13-e72b2f96dbe8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Menu",
+      "targets": [
+        ["linkText=Menu", "linkText"],
+        ["css=.w3-bar-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Menu')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '#menu')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Menu')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "98ae576a-bec4-4822-a8ed-4d619836c2f6",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a1ce5f3c-9002-44a5-ac18-13b4ad2d3a92",
+    "name": "Open template page and click on Contact.",
+    "commands": [{
+      "id": "a9215f99-e79b-45c6-b2de-adf54173be0b",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3e7a6334-fd1d-430e-9e94-099613ef4c5d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b86fc580-b02a-4832-bd0a-1800c214705a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Template page with CSS",
+      "targets": [
+        ["linkText=Template page with CSS", "linkText"],
+        ["css=div:nth-child(2) > div > div > div > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Template page with CSS')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'TemplateWithCSS.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Template page with CSS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6acf102-cb4d-42be-b588-31419a53b198",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Contact",
+      "targets": [
+        ["linkText=Contact", "linkText"],
+        ["css=.w3-bar-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Contact')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '#contact')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'Contact')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd7a3dc2-6e8e-441a-9a37-af3ae9259df9",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "7ee3ad15-80f3-43f5-88ff-16ae35ea6754",
+    "name": "Open template page and click on About, Menu, Contact, Home.",
+    "commands": [{
+      "id": "80cc5868-2379-4c0a-85ea-77611b18b467",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "92ffad78-b933-4055-9464-a79908e1c6be",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0463d180-f006-4ca5-b20d-30c110ff8684",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Template page with CSS",
+      "targets": [
+        ["linkText=Template page with CSS", "linkText"],
+        ["css=div:nth-child(2) > div > div > div > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Template page with CSS')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'TemplateWithCSS.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Template page with CSS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7e4b909-2b16-47f0-8eff-31fa7dbbb71a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=About",
+      "targets": [
+        ["linkText=About", "linkText"],
+        ["css=.w3-right > .w3-bar-item:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'About')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '#about')]", "xpath:href"],
+        ["xpath=//div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'About')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2731492-df4c-4fd8-9c07-29d309d5675b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Menu",
+      "targets": [
+        ["linkText=Menu", "linkText"],
+        ["css=.w3-bar-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Menu')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '#menu')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Menu')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea4b3a25-6759-435c-a750-83c9d2bcc555",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Contact",
+      "targets": [
+        ["linkText=Contact", "linkText"],
+        ["css=.w3-bar-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Contact')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '#contact')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'Contact')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "12fe567e-5628-4137-a2c4-c0298bb6df73",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Gourmet au Catering",
+      "targets": [
+        ["linkText=Gourmet au Catering", "linkText"],
+        ["css=.w3-bar > .w3-bar-item", "css:finder"],
+        ["xpath=//a[contains(text(),'Gourmet au Catering')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '#home')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Gourmet au Catering')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b9b26b1-6843-4f70-8629-4cf03463f521",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a104219c-55e4-4870-b213-153fcc050eb6",
+    "name": "Open template page, Click on Contact, fill form, and send message.",
+    "commands": [{
+      "id": "e37cb4b6-4f4b-4932-aefa-22d566bfedfe",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "27c03252-15c0-4ec1-b48c-addd899acdde",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "15e0c726-be60-46f4-911e-35ff4f4cfab7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Template page with CSS",
+      "targets": [
+        ["linkText=Template page with CSS", "linkText"],
+        ["css=div:nth-child(2) > div > div > div > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Template page with CSS')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'TemplateWithCSS.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Template page with CSS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f3d5418-048b-4654-ae71-a3cdb2f0db38",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Contact",
+      "targets": [
+        ["linkText=Contact", "linkText"],
+        ["css=.w3-bar-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Contact')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '#contact')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'Contact')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b361d877-f82b-4c90-9919-0b3dc4862551",
+      "comment": "",
+      "command": "click",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css:finder"],
+        ["xpath=//form[@action='/action_page.php']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"],
+        ["xpath=//form[contains(.,'SEND MESSAGE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "98bc081f-d30d-4825-a9e1-9ec6406dbea4",
+      "comment": "",
+      "command": "click",
+      "target": "name=Name",
+      "targets": [
+        ["name=Name", "name"],
+        ["css=p:nth-child(1) > .w3-input", "css:finder"],
+        ["xpath=//input[@name='Name']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d1905aa-6e56-4d15-8a45-c29f9acf9f75",
+      "comment": "",
+      "command": "type",
+      "target": "name=Name",
+      "targets": [
+        ["name=Name", "name"],
+        ["css=p:nth-child(1) > .w3-input", "css:finder"],
+        ["xpath=//input[@name='Name']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Parau Denis"
+    }, {
+      "id": "6931d09d-1fdb-4e65-9998-e57c3ed2f07f",
+      "comment": "",
+      "command": "type",
+      "target": "name=People",
+      "targets": [
+        ["name=People", "name"],
+        ["css=p:nth-child(2) > .w3-input", "css:finder"],
+        ["xpath=//input[@name='People']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[2]/input", "xpath:idRelative"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "10"
+    }, {
+      "id": "9a747d3e-d9e8-4172-9acd-f4d1f36e3143",
+      "comment": "",
+      "command": "click",
+      "target": "name=date",
+      "targets": [
+        ["name=date", "name"],
+        ["css=p:nth-child(3) > .w3-input", "css:finder"],
+        ["xpath=//input[@name='date']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[3]/input", "xpath:idRelative"],
+        ["xpath=//p[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3fef86a-f5f7-4e14-8a58-47590676dc74",
+      "comment": "",
+      "command": "type",
+      "target": "name=date",
+      "targets": [
+        ["name=date", "name"],
+        ["css=p:nth-child(3) > .w3-input", "css:finder"],
+        ["xpath=//input[@name='date']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[3]/input", "xpath:idRelative"],
+        ["xpath=//p[3]/input", "xpath:position"]
+      ],
+      "value": "2021-01-10T20:00"
+    }, {
+      "id": "f68fb572-d14a-43e5-b88c-b3cee3a0aa71",
+      "comment": "",
+      "command": "click",
+      "target": "name=People",
+      "targets": [
+        ["name=People", "name"],
+        ["css=p:nth-child(2) > .w3-input", "css:finder"],
+        ["xpath=//input[@name='People']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[2]/input", "xpath:idRelative"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0baa92c-3f4c-40b1-8949-5adcb6e08259",
+      "comment": "",
+      "command": "click",
+      "target": "name=date",
+      "targets": [
+        ["name=date", "name"],
+        ["css=p:nth-child(3) > .w3-input", "css:finder"],
+        ["xpath=//input[@name='date']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[3]/input", "xpath:idRelative"],
+        ["xpath=//p[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c553ec5e-cab4-4912-8c34-362fca383171",
+      "comment": "",
+      "command": "click",
+      "target": "name=Message",
+      "targets": [
+        ["name=Message", "name"],
+        ["css=p:nth-child(4) > .w3-input", "css:finder"],
+        ["xpath=//input[@name='Message']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[4]/input", "xpath:idRelative"],
+        ["xpath=//p[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f61d4f9c-186f-44de-ad21-a2cad482b58f",
+      "comment": "",
+      "command": "type",
+      "target": "name=Message",
+      "targets": [
+        ["name=Message", "name"],
+        ["css=p:nth-child(4) > .w3-input", "css:finder"],
+        ["xpath=//input[@name='Message']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[4]/input", "xpath:idRelative"],
+        ["xpath=//p[4]/input", "xpath:position"]
+      ],
+      "value": "VVS"
+    }, {
+      "id": "51841fa8-918a-4811-ab03-1cf85014c1cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w3-section",
+      "targets": [
+        ["css=.w3-section", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[5]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'SEND MESSAGE')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win3305",
+      "windowTimeout": 2000
+    }, {
+      "id": "5517c2be-b85f-4b65-acaf-7cbaefd15d1a",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f34914ce-3f49-42c2-bc94-1d0034c9dd2c",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win3305}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3573dcc0-2b38-4f52-a30b-5f404cae20b1",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd95f121-f1a1-477b-ba0b-eef273d6de85",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "93606e98-20d5-4717-909b-34df8ddd7509",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "c341a53a-a541-46c1-95da-bb2ec0cd65dd",
+    "name": "Open template page, Click on Contact, send message without filling form.",
+    "commands": [{
+      "id": "b38041d4-2144-49ef-9294-42efae619742",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d2523d5-160c-4ebb-b541-32b829cc8760",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "814x574",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d84a017-89ec-4e03-9f04-2e25cb77ab38",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Template page with CSS",
+      "targets": [
+        ["linkText=Template page with CSS", "linkText"],
+        ["css=div:nth-child(2) > div > div > div > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Template page with CSS')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'TemplateWithCSS.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Template page with CSS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea3e68da-2623-4425-bb5a-d88c95322098",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Contact",
+      "targets": [
+        ["linkText=Contact", "linkText"],
+        ["css=.w3-bar-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Contact')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '#contact')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'Contact')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c4fb2e1-5b32-466c-b69b-4dfcc68adb0d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w3-section",
+      "targets": [
+        ["css=.w3-section", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[5]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'SEND MESSAGE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "45be8007-7d3f-419b-9b2d-0b12bd7ea11f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w3-section",
+      "targets": [
+        ["css=.w3-section", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='contact']/form/p[5]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'SEND MESSAGE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "516f5747-f21c-45e8-a3c3-9ec13256a84f",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "9bc56b3d-089f-4d3e-b5a4-d413472fa5c9",
+    "name": "Server Running",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["e42e9a44-bca2-4c9a-96f9-b1a41b5dea77", "4eea1ac0-6caf-4aba-a088-4ba895e2def1", "44d1e910-cdb0-4567-809e-63a11187db62", "92523780-803a-49d6-9f3c-d21c88cc7fd5", "e5bc787f-7e89-4789-8d53-16108b8abcde", "600976c2-c1fe-40aa-9633-c6f654c7e3d6", "19b7ffbd-3545-489e-8fb1-b2a2d3696673", "9c1527c4-74f8-474a-9400-7b9a5052ab54", "a1ce5f3c-9002-44a5-ac18-13b4ad2d3a92", "a104219c-55e4-4870-b213-153fcc050eb6", "c341a53a-a541-46c1-95da-bb2ec0cd65dd", "7ee3ad15-80f3-43f5-88ff-16ae35ea6754"]
+  }, {
+    "id": "83f17a05-875c-4eb7-a742-e12d66dfb1ac",
+    "name": "Server Maintenance",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["06cc86f7-c0f8-4857-b757-8f4ad51534a2"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
